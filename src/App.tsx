@@ -1,15 +1,8 @@
 import React, {useState} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Item from "./components/Item";
 import NewExpense from "./components/NewExpense/NewExpense";
-
-type ExpenseData = {
-    id: string;
-    title: string;
-    amount: number;
-    date: Date;
-};
+import ExpenseData from "./components/types";
 
 function App() {
     const [expenses, setExpenses] = useState(
@@ -29,13 +22,12 @@ function App() {
         ]
     );
 
-    const onSaveExpenseData = (data : {title: string; amount: number; date: Date}) => {
+    const onSaveExpenseData = (data : ExpenseData) => {
         setExpenses(prevState => {
             return [
                 ...prevState,
                 {
                     ...data,
-                    id: ('e' + ++prevState.length),
                 }
             ];
         })

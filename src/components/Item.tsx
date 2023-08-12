@@ -1,13 +1,7 @@
 import { useState } from 'react';
+import ExpenseData from "./types";
 
-type ItemProperty = {
-    id: string;
-    title: string;
-    amount: number;
-    date: Date;
-}
-
-const Item = (props : ItemProperty) => {
+const Item = (props : ExpenseData) => {
     const [title, setTitle] = useState(props.title);
     const [amount, setAmount] = useState(props.amount);
     const [date, setDate] = useState(props.date);

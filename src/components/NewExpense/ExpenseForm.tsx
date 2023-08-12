@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
+import ExpenseData from "../types";
 
-// TODO: set props type
-const ExpenseForm = (props : any) => {
+const ExpenseForm = (props : {onSaveExpenseData(data : ExpenseData) : void}) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
@@ -22,8 +22,9 @@ const ExpenseForm = (props : any) => {
         event.preventDefault();
 
         const expenseData = {
+            id: 'e' + Date.now(),
             title: enteredTitle,
-            amount: enteredAmount,
+            amount: Number(enteredAmount),
             date: new Date(enteredDate),
         };
 

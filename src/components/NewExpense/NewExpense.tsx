@@ -1,8 +1,8 @@
 import React from "react";
 import ExpenseForm from "./ExpenseForm";
+import ExpenseData from "../types";
 
-// TODO: set props type
-const NewExpense = (props : any) => {
+const NewExpense = (props : {onSaveExpenseData(data : ExpenseData) : void}) => {
     return (
         <div>
             <ExpenseForm onSaveExpenseData={props.onSaveExpenseData} />
