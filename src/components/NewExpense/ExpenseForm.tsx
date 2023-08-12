@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
-const ExpenseForm = () => {
+// TODO: set props type
+const ExpenseForm = (props : any) => {
     const [enteredTitle, setEnteredTitle] = useState('');
     const [enteredAmount, setEnteredAmount] = useState('');
     const [enteredDate, setEnteredDate] = useState('');
@@ -17,8 +18,24 @@ const ExpenseForm = () => {
         setEnteredDate(event.target.value);
     };
 
+    const submitHandler = (event: React.SyntheticEvent) => {
+        event.preventDefault();
+
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: new Date(enteredDate),
+        };
+
+        props.onSaveExpenseData(expenseData);
+
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
+    };
+
     return (
-        <form>
+        <form onSubmit={submitHandler}>
             <div>
                 <div>
                     <label>Title</label>

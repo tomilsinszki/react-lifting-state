@@ -1,10 +1,11 @@
 import React from "react";
 import ExpenseForm from "./ExpenseForm";
 
-const NewExpense = () => {
+// TODO: set props type
+const NewExpense = (props : any) => {
     return (
         <div>
-            <ExpenseForm />
+            <ExpenseForm onSaveExpenseData={props.onSaveExpenseData} />
         </div>
     );
 };
