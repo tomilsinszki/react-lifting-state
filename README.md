@@ -1,5 +1,5 @@
 Lifting state up.
 
-`npx create-react-app react-reducer --template typescript`
+`npx create-react-app react-lifting-state --template typescript`
 
 `npm start`
